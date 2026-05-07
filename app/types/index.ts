@@ -32,3 +32,12 @@ export interface Team {
     updatedAt: Date   
 }
 
+
+
+
+export interface AuthContextType {
+    user : User | null ;
+    login : (formdata : FormData) => void;
+    logout : () => void;
+    hasPermission :(requiredRole : Role) => boolean
+}
