@@ -1,4 +1,6 @@
+import AdminDashboard from '@/app/components/dashboard/AdminDashboard';
 import { checkUserPermission, getCurrentUser } from '@/app/lib/auth'
+import { transformTeams, transformUsers } from '@/app/lib/util';
 import { Role } from '@/app/types';
 import { prisma } from '@/lib/prisma';
 import { redirect } from 'next/navigation';
@@ -32,8 +34,12 @@ const AdminPage = async () => {
         })
     ])
 
+
+    const users=transformUsers(primaUsers);
+    const teams=transformTeams(prismaTeams)
+
     return (
-    <AdminDashboard users={primaUsers} teams={prismaTeams} currentUser={user}/>
+    <AdminDashboard users={users} teams={teams} currentUser={user}/>
     )
 }
 

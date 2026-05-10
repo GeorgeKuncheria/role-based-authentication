@@ -82,7 +82,7 @@ class ApiClient{
     };
 
 
-    async assignUserToRole(userId:string,teamId:string){
+    async assignUserToRole(userId:string,teamId:string | null ){
         return this.request(`/api/user/${userId}/team`,{
             method:"PATCH",
             body:JSON.stringify({
