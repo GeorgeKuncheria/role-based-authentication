@@ -36,7 +36,7 @@ const AdminPage = async () => {
 
 
     const users=transformUsers(primaUsers);
-    const teams=transformTeams(prismaTeams)
+    const teams=transformTeams(prismaTeams);
 
     return (
     <AdminDashboard users={users} teams={teams} currentUser={user}/>
